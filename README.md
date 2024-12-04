@@ -63,13 +63,13 @@ Changing Debian packaging requires Debian, which you can run inside a Docker con
 Build the Docker container:
 
 ```bash
-docker build -t yavb-local .
+docker build -f Dockerfile.Debian -t yavb-debian .
 ```
 
 Run the Docker container:
 
 ```bash
-docker run --rm -t -v $(pwd)/projects/:/projects -w /projects yavb-local \
+docker run --rm -t -v $(pwd)/projects/:/projects -w /projects yavb-debian \
   --system debian \
   --bump minor \
   --directory your-project/ 'other-projects/*/' \
