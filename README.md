@@ -68,11 +68,12 @@ Run the Docker container:
 
 ```bash
 docker run --rm -t -v $(pwd)/projects/:/projects -w /projects yavb-local \
-  yavb \
   --system debian \
   --bump minor \
-  --directory your-project/ other-projects/*/ \
+  --directory your-project/ 'other-projects/*/' \
   --changelog 'Make this project great again'
   --name 'John Doe' \
   --email 'john@example.com'
 ```
+
+Note: when specifying glob characters (such as `*`), quote them. Otherwise, your shell might expand them.
