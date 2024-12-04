@@ -35,12 +35,14 @@ No configuration is supported.
 
 All examples assume that your projects are in the directory `projects/`.
 
+⚠️ Quote glob characters (such as `*`). Otherwise, the shell might expand them.
+
 ## Example: increment patch (SemVer) for PyProject
 
 ```bash
 yavb --system pyproject \
   --bump patch \
-  --directory projects/your-project/ projects/other-projects/*/
+  --directory projects/your-project/ 'projects/other-projects/*/'
 ```
 
 ## Example: increment minor (SemVer) for Debian and PyProject, on Debian
@@ -48,7 +50,7 @@ yavb --system pyproject \
 ```bash
 yavb --system debian --system pyproject \
   --bump minor \
-  --directory projects/your-project/ projects/other-projects/*/ \
+  --directory projects/your-project/ 'projects/other-projects/*/' \
   --changelog 'Make this project great again' \
   --name 'John Doe' \
   --email 'john@example.com'
@@ -61,13 +63,13 @@ Changing Debian packaging requires Debian, which you can run inside a Docker con
 Build the Docker container:
 
 ```bash
-docker build -t yavb-local .
+docker build -f Dockerfile.Debian -t yavb-debian .
 ```
 
 Run the Docker container:
 
 ```bash
-docker run --rm -t -v $(pwd)/projects/:/projects -w /projects yavb-local \
+docker run --rm -t -v $(pwd)/projects/:/projects -w /projects yavb-debian \
   --system debian \
   --bump minor \
   --directory your-project/ 'other-projects/*/' \
@@ -75,5 +77,3 @@ docker run --rm -t -v $(pwd)/projects/:/projects -w /projects yavb-local \
   --name 'John Doe' \
   --email 'john@example.com'
 ```
-
-Note: when specifying glob characters (such as `*`), quote them. Otherwise, your shell might expand them.
