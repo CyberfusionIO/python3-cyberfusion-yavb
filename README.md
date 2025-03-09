@@ -73,7 +73,7 @@ docker run --rm -t -v $(pwd)/projects/:/projects -w /projects yavb-debian \
   --system debian \
   --bump minor \
   --directory your-project/ 'other-projects/*/' \
-  --changelog 'Make this project great again'
+  --changelog 'Make this project great again' \
   --name 'John Doe' \
   --email 'john@example.com'
 ```
