@@ -42,7 +42,7 @@ All examples assume that your projects are in the directory `projects/`.
 ```bash
 yavb --system pyproject \
   --bump patch \
-  --directory projects/your-project/ 'projects/other-projects/*/'
+  --directory projects/your-project/
 ```
 
 ## Example: increment minor (SemVer) for Debian and PyProject, on Debian
@@ -50,7 +50,7 @@ yavb --system pyproject \
 ```bash
 yavb --system debian --system pyproject \
   --bump minor \
-  --directory projects/your-project/ 'projects/other-projects/*/' \
+  --directory projects/your-project/ \
   --changelog 'Make this project great again' \
   --name 'John Doe' \
   --email 'john@example.com'
@@ -72,7 +72,7 @@ Run the Docker container:
 docker run --rm -t -v $(pwd)/projects/:/projects -w /projects yavb-debian \
   --system debian \
   --bump minor \
-  --directory your-project/ 'other-projects/*/' \
+  --directory your-project/ \
   --changelog 'Make this project great again' \
   --name 'John Doe' \
   --email 'john@example.com'
