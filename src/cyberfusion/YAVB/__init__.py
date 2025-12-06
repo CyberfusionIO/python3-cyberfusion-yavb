@@ -12,7 +12,7 @@ import glob
 app = typer.Typer()
 
 
-@app.command()  # type: ignore[misc]
+@app.command()  # type: ignore[untyped-decorator]
 def main(
     systems_names: list[System] = typer.Option(
         ...,
