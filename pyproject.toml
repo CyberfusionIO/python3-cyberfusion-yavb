@@ -11,9 +11,9 @@ authors = [
     { name = "Cyberfusion", email = "support@cyberfusion.io" },
 ]
 dependencies = [
-  "semver==3.0.2",
-  "typer==0.15.2",
-  "tomlkit==0.13.2",
+  "semver==3.0.4",
+  "typer==0.21.1",
+  "tomlkit==0.14.0",
 ]
 
 [project.urls]
